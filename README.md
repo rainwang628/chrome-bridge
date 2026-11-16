@@ -12,9 +12,9 @@ DSH / ctl.py  ──HTTP(127.0.0.1:8777)──▶  server.py  ──WebSocket─
 - `extension/`：MV3 扩展，负责真正在页面里执行。
 - `ctl.py`：命令行客户端，也是可 `import` 的 Python 库。
 - `token`：本地口令，服务端首次启动自动生成（0644→0600 权限），防止别的进程/网页乱发命令。
-- `extension/config.js`：由服务端从 `token` 自动生成，扩展实际读取它；仓库里只有 `config.example.js` 模板。
+- `extension/config.js`：由服务端从 `token` 自动生成，扩展实际读取它。
 
-**凭据不入库**：`token` 与 `extension/config.js` 含真实口令，已由 `.gitignore` 排除，仓库只保留模板。换机或重装时删掉 `token` 重启 `./run.sh`，服务端会重新生成口令并写好扩展配置。
+换机或重装时删掉 `token` 重启 `./run.sh`，服务端会重新生成口令并写好扩展配置。
 
 ## 一次性安装
 
