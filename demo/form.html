@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>桥接测试表单</title>
+<style>
+  body{font:14px/1.6 -apple-system,system-ui,sans-serif;max-width:520px;margin:60px auto;color:#222}
+  label{display:block;margin:14px 0 4px;font-weight:600}
+  input,textarea{width:100%;padding:8px;border:1px solid #ccc;border-radius:6px;font:inherit;box-sizing:border-box}
+  button{margin-top:18px;padding:9px 18px;border:0;border-radius:6px;background:#367CE6;color:#fff;font:inherit;cursor:pointer}
+  #result{margin-top:18px;padding:12px;border-radius:8px;background:#eef4ff;display:none}
+</style>
+</head>
+<body>
+<h1>桥接测试表单</h1>
+<form id="f">
+  <label for="name">姓名</label>
+  <input id="name" name="name" autocomplete="off">
+  <label for="email">邮箱</label>
+  <input id="email" name="email" type="email" autocomplete="off">
+  <label for="note">备注</label>
+  <textarea id="note" name="note" rows="3"></textarea>
+  <label><input id="agree" type="checkbox" style="width:auto"> 我同意</label>
+  <button type="submit">提交</button>
+</form>
+<div id="result"></div>
+<script>
+  document.getElementById('f').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const d = new FormData(e.target);
+    const out = document.getElementById('result');
+    out.style.display = 'block';
+    out.textContent = '已提交：' + JSON.stringify(Object.fromEntries(d.entries()));
+    window.__submitted = Object.fromEntries(d.entries());
+  });
+</script>
+</body>
+</html>

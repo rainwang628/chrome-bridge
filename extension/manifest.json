@@ -1,0 +1,15 @@
+{
+  "manifest_version": 3,
+  "name": "DSH Chrome Bridge",
+  "version": "1.0.0",
+  "description": "本地桥接：让 DSH 在你已登录的 Chrome 里读取、填写和点击页面",
+  "permissions": ["tabs", "scripting", "debugger", "alarms"],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "sw.js",
+    "type": "module"
+  },
+  "action": {
+    "default_title": "DSH Chrome Bridge"
+  }
+}

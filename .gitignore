@@ -1,0 +1,8 @@
+# 真实凭据：本地口令与由它生成的扩展配置，均不入库
+token
+extension/config.js
+
+# 运行时
+bridge.log
+__pycache__/
+*.pyc
